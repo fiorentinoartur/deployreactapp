@@ -40,7 +40,7 @@ const Table = ({ dados, fnConnect = null, fnShowModal = null }) => {
 
               <td className="tbal-data__data tbal-data__data--big tbal-data__btn-actions">
                 {/* imagem do comentário - abre o modal */}
-                {new Date(e.dataEvento) < Date.now() ? (
+                {new Date(e.dataEvento) > Date.now() ? (
                   <img
                     className="tbal-data__icon"
                     // idevento={e.idEvento}

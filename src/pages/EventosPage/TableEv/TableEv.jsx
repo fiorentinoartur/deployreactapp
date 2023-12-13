@@ -89,7 +89,7 @@ const Table = ({ dados, fnDelete = null, fnUpdate = null }) => {
                   idevento={tp.idEvento}
                   src={trashDelete}
                   alt=""
-                  onClick={(e) => fnDelete(e.target.getAttribute("idevento"))}
+                  onClick={(e) => fnDelete(e.target.getAttribute("idEvento"))}
                 />
               </td>
             </tr>

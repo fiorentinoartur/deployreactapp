@@ -5,8 +5,12 @@ import { Tooltip } from "react-tooltip";
 
 // importar a função lá do arquivo stringFunction (destructuring)
 import { dateFormatDbToView } from "../../Utils/stringFunctions";
-
+import { Link } from "react-router-dom";
+import Comentario from "../../pages/ComentariosEvento/Comentario";
+import { useContext } from "react";
+import { UserContext } from "../../context/AuthContext";
 const NextEvent = ({ title, description, eventDate, idEvent }) => {
+  const {userData} = useContext(UserContext);
   function conectar(idEvent) {
     // dá pra usar a prop idEvent? testar
     alert(`Chamar o recurso para conectar: ${idEvent}`);
@@ -17,7 +21,7 @@ const NextEvent = ({ title, description, eventDate, idEvent }) => {
 
       <p
         className="event-card__description"
-        
+
         data-tooltip-id={idEvent}
         data-tooltip-content={description}
         data-tooltip-place="top"
@@ -30,15 +34,28 @@ const NextEvent = ({ title, description, eventDate, idEvent }) => {
         {/* aplicar a função pra converter a data */}
         {dateFormatDbToView(eventDate)}
       </p>
+      {userData.nome && userData.role === "Administrador" ? (
 
-      <a
+        <Link to={"/comentarios-evento-all"}
+          onClick={() => {
+            conectar(idEvent);
+          }}
+          className="event-card__connect-link"
+        >
+          Detalhes
+        </Link>
+
+      ) : userData.nome && userData.role === "Comum" ? ( <Link to={"/comentarios-evento-only"}
         onClick={() => {
           conectar(idEvent);
         }}
         className="event-card__connect-link"
       >
-        Conectar
-      </a>
+        Detalhes
+      </Link>) : null}
+
+
+
     </article>
   );
 };

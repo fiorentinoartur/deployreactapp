@@ -215,14 +215,15 @@ export default function EventosPaage(props) {
     // console.log("teste");
     try {
       // const promise = await api.post(`/Eventos`, {
-      await api.post(eventsResource, {
-        nomeEvento,
-        dataEvento,
-        descricao: descricaoEvento,
-        idInstituicao: instituicao, //por enquanto chumbado
-        idTipoEvento: tipoEvento,
-      });
-      // setFrmEditData({});//limpa os dados do formulário
+    const obj =   await api.post(eventsResource, {
+      nomeEvento,
+      dataEvento,
+      descricao: descricaoEvento,
+      idInstituicao: instituicao, //por enquanto chumbado
+      idTipoEvento: tipoEvento,
+    });
+    console.log(obj);
+    // setFrmEditData({});//limpa os dados do formulário
       const newListEvents = await api.get(eventsResource);
       setEventos(newListEvents.data);
       setNotifyUser({
