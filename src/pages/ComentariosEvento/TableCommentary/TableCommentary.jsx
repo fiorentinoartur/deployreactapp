@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./TableCommentary.css";
 // import editPen from "../../../assets/images/edit-pen.svg";
 import editPen from "../../../assets/images/edit-pen.svg";
@@ -8,10 +8,12 @@ import { dateFormateDbToView } from "../../../Utils/stringFunctions";
 // importa a biblioteca de tootips ()
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
+import { UserContext } from "../../../context/AuthContext";
 
 // import trashDelete from "../../../assets/images/trash-delete.svg";
 
 const TableCommentary = ({ dados}) => {
+  const { userData } = useContext(UserContext);
   // console.log(dados);
   return (
     <table className="table-data">
@@ -31,7 +33,7 @@ const TableCommentary = ({ dados}) => {
           return (
             <tr className="table-data__head-row" >
               <td className="table-data__data table-data__data--big">
-                {tp.evento.nomeEvento}
+                {tp.usuario.nome}
               </td>
               <td
                 className="table-data__data table-data__data--big table-data__data--handover"

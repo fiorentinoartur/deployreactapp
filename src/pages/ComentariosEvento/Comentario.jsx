@@ -5,47 +5,41 @@ import Title from '../../components/Title/Title';
 import "./Comentario.css"
 import TableCommentary from './TableCommentary/TableCommentary';
 import { useParams } from 'react-router-dom';
-import api, {commentaryEventResource} from '../../Services/Service';
+import api, { commentaryEventResource } from '../../Services/Service';
 const Comentario = () => {
 
     const [comentarios, setComentarios] = useState([]);
-    const {idEvento} = useParams();
+    const { idEvento } = useParams();
 
-useEffect(() => {
-    const loadCommentarys = async () => {
-        try {
-            const promise = await api.get(commentaryEventResource+"/"+idEvento)
-            setComentarios(promise.data[0])
-            
-        } catch (error) {
-            console.log(error);
+    useEffect(() => {
+        const loadCommentarys = async () => {
+            try {
+                const promise = await api.get(commentaryEventResource + "/" + idEvento)
+                setComentarios(promise.data)
+                console.log(promise.data);
+
+            } catch (error) {
+                console.log(error);
+            }
         }
-    }
-    loadCommentarys();
+        loadCommentarys();
 
-})
+    },[])
 
     return (
         <>
-            <Container>
-                <MainContent>
-                    <>
-                        <h1> {comentarios.descricao}</h1>
-                        <section className="lista-comentario-section">
-                            <Title />
-                                <TableCommentary
-                                    dados={comentarios}
+            <MainContent>
+                <div className="lista-comentario-section">
+                    <Container>
+                        <Title
+                            titleText={comentarios[0].evento.nomeEvento}
+                            color='white'
+                        />
+                    </Container>
+                    <TableCommentary dados={comentarios} />
+                </div>
 
-                                />
-                        </section>
-                   
-
-                    </>
-
-                </MainContent>
-
-            </Container>
-
+            </MainContent>
 
         </>
     );
