@@ -197,7 +197,7 @@ const EventosAlunoPage = () => {
       const promise = await api.delete(
         `${commentaryEventResource}/${idComentario}`
       );
-      if (promise.status === 200) {
+      if (promise.status === 204) {
         alert("Evento excluído com sucesso!");
       }
     } catch (error) {

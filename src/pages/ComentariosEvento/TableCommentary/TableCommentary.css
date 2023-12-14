@@ -1,36 +1,21 @@
-h1{
-    text-align: center;
-    margin-top: 50px;
-    width: 100%;
-}
-
 /* Smartphone */
 @font-face {
     font-family: Poppins-Thin;
-    src: url(../../assets/fonts/Poppins/Poppins-Thin.ttf);
+    src: url(../../../assets/fonts/Poppins/Poppins-Thin.ttf);
   }
   @font-face {
     font-family: Poppins-Semibold;
-    src: url(../../assets/fonts/Poppins/Poppins-SemiBold.ttf);
+    src: url(../../../assets/fonts/Poppins/Poppins-SemiBold.ttf);
   }
   @font-face {
     font-family: Poppins-Regular;
-    src: url(../../assets/fonts/Poppins/Poppins-Regular.ttf);
+    src: url(../../../assets/fonts/Poppins/Poppins-Regular.ttf);
   }
   
   /* Custommizations */
   
   /* Tootip */
-  .lista-comentario-section
-  {
 
-    background-color: var(--color-red);
-    width: 100%;
-margin: 50px 0;
-    overflow: auto;
-    padding: 0 10px;
-  }
-  /* height: 432px;
   .custom-tootip {
     color: #B51D44 !important;
     background-color: #fff !important;
@@ -45,7 +30,6 @@ margin: 50px 0;
     height: 466px; /* apagar */
     margin-top: 60px;
     color: var(--color-white);
-
     /* border: 1px solid white; */
   }
   

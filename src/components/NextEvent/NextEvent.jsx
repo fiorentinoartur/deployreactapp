@@ -36,7 +36,7 @@ const NextEvent = ({ title, description, eventDate, idEvent }) => {
       </p>
       {userData.nome && userData.role === "Administrador" ? (
 
-        <Link to={"/comentarios-evento-all"}
+        <Link to={`/comentarios-evento-all/${idEvent}`}
           onClick={() => {
             conectar(idEvent);
           }}
@@ -45,7 +45,7 @@ const NextEvent = ({ title, description, eventDate, idEvent }) => {
           Detalhes
         </Link>
 
-      ) : userData.nome && userData.role === "Comum" ? ( <Link to={"/comentarios-evento-only"}
+      ) : userData.nome && userData.role === "Comum" ? ( <Link to={`/comentarios-evento-only/${idEvent}`}
         onClick={() => {
           conectar(idEvent);
         }}

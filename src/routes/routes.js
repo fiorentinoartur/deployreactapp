@@ -49,7 +49,7 @@ const Rotas = () => {
           }
         />
 <Route
-path="/comentarios-evento-all"
+path="/comentarios-evento-all/:idEvento"
 element={
   <PrivateRoute redirectTo="/">
     <Comentario />
@@ -57,7 +57,7 @@ element={
 }
 />
 <Route
-path="/comentarios-evento-only"
+path="/comentarios-evento-only/:idEvento"
 element={
   <PrivateRoute redirectTo="/">
     <Comentario />
@@ -66,7 +66,7 @@ element={
 />
 
         <Route element={<LoginPage />} path="/login" />
-        <Route element={<TestePage />} path="/testes" />
+        <Route element={<TestePage />} path="/teste/" />
       </Routes>
 
       <Footer />
